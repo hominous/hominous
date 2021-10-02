@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <title>회원가입</title>
+</head>
+<body>
+<div class="container">
+  <!--     action  여기수정해-->
+  <div class="col-lg-6 col-md-8 mx-auto">
+    <h1 class="fw-light"><b>크루 생성</b></h1>
+    <p class="lead text-muted"> 우리 가족만의 크루를 만드세요 😃 </p>
+  </div>
+  <form action="/crew" method="post">
+    <div class="mb-3">
+      <label for="exampleInputId" class="form-label">생성자(로그인 구현 후 삭제)</label>
+      <input name ="createdBy" type="text" class="form-control" id="exampleInputId">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputId" class="form-label">크루명</label>
+      <input name ="name" type="text" class="form-control" id="exampleInputId">
+    </div>
+    <button type="submit" class="btn btn-primary">등록</button>
+  </form>
+</div>
+</body>
+</html>

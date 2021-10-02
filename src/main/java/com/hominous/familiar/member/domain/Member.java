@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter @Setter
 public class Member {
-    private Long dbId;
+    private Long id;
     private String userId;
     private String password;
     private String userName;

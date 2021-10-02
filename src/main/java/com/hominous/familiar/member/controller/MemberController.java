@@ -21,7 +21,7 @@ public class MemberController {
     }
 
     @PostMapping
-    public String create(MemberCreateDto memberCreateDto, Model model) {
+    public String createMember(MemberCreateDto memberCreateDto, Model model) {
         Member member = new Member(
                 memberCreateDto.getUserId(),
                 memberCreateDto.getPassword(),
