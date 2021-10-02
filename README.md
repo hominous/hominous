@@ -4,6 +4,7 @@
 ### ✔︎Spec
 - Spring boot 2.5.5
 - JAVA 11
+- Front Bootstrap, Thymeleaf
 
 
 ### 2021.10.03
