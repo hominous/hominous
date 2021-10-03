@@ -1,7 +1,7 @@
 package com.hominous.familiar.member.controller;
 
 
-import com.hominous.familiar.dto.MemberCreateDto;
+import com.hominous.familiar.member.dto.MemberCreateDto;
 import com.hominous.familiar.member.domain.Member;
 import com.hominous.familiar.member.repository.MemberRepository;
 import org.springframework.stereotype.Controller;
