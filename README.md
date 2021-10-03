@@ -12,6 +12,12 @@
 - Member, Crew 생성
 - HTML, CSS, Thymeleaf // 각 페이지 생성
 
+
+### 2021.10.03
+- repository h2 연결 (crew 만)
+- @ModelAttribute 어노테이션으로 코드 리팩토링
+- thymeleaf 회원가입 및 crew 생성 시 name 표기
+
+
 ### (예정)
 - 로그인 구현
-- repository (memory → h2)
