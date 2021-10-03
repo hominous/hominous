@@ -13,9 +13,6 @@ public class MemberCreateDto {
     private int userMonth;
     private int userDate;
 
-    public MemberCreateDto() {
-    }
-
     public MemberCreateDto(String userId, String password, String userName, int userYear, int userMonth, int userDate) {
         this.userId = userId;
         this.password = password;

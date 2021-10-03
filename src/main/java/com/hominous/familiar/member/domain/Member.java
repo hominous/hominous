@@ -5,8 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-@Getter @Setter
+@Getter
 public class Member {
+
+    @Setter
     private Long id;
     private String userId;
     private String password;
@@ -17,12 +19,13 @@ public class Member {
     public Member() {
     }
 
-    public Member(String userId, String password, String userName, int userYear, int userMonth, int userDate) {
-        this.userId = userId;
-        this.password = password;
-        this.userName = userName;
-        this.userYear = userYear;
-        this.userMonth = userMonth;
-        this.userDate = userDate;
+    public Member(MemberCreateDto memberCreateDto) {
+        this.userId = memberCreateDto.getUserId();
+        this.password = memberCreateDto.getPassword();
+        this.userName = memberCreateDto.getUserName();
+        this.userYear = memberCreateDto.getUserYear();
+        this.userMonth = memberCreateDto.getUserMonth();
+        this.userDate = memberCreateDto.getUserDate();
     }
+
 }
