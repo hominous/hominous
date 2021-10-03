@@ -1,4 +1,4 @@
-package com.hominous.familiar.dto;
+package com.hominous.familiar.crew.dto;
 
 
 import lombok.Getter;

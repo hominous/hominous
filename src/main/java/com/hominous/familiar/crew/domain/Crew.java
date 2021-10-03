@@ -1,7 +1,7 @@
 package com.hominous.familiar.crew.domain;
 
 
-import com.hominous.familiar.dto.CrewCreateDto;
+import com.hominous.familiar.crew.dto.CrewCreateDto;
 import lombok.Getter;
 import lombok.Setter;
 

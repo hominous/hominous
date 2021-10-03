@@ -1,5 +1,6 @@
 package com.hominous.familiar.member.domain;
 
+import com.hominous.familiar.member.dto.MemberCreateDto;
 import lombok.Getter;
 import lombok.Setter;
 
