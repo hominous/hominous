@@ -2,12 +2,11 @@ package com.hominous.familiar.crew.dto;
 
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public class CrewCreateDto {
-    private String name;
-    private String createdBy;
+    private final String name;
+    private final String createdBy;
 
     public CrewCreateDto(String name, String createdBy) {
         this.name = name;

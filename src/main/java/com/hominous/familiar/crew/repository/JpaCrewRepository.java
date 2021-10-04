@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 
-@Repository
+
 public class JpaCrewRepository implements CrewRepository{
 
     private final EntityManager em;
