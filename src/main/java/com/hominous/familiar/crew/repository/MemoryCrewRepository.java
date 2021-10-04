@@ -9,7 +9,7 @@ import java.util.Map;
 
 
 
-public class MemoryCrewRepository {
+public class MemoryCrewRepository implements CrewRepository {
 
     private static Map<Long, Crew> store = new HashMap<>();
     private static long sequence = 0L;

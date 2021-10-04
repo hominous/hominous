@@ -4,7 +4,7 @@ package com.hominous.familiar.crew.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
 public class CrewCreateDto {
     private String name;
     private String createdBy;

@@ -19,12 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/crew")
 public class CrewController {
 
-    //Spring config 말고 주입받고싶은데;;
     private final CrewRepository crewRepository;
 
     @Autowired
-    public CrewController(JpaCrewRepository jpaCrewRepository) {
-        this.crewRepository = jpaCrewRepository;
+    public CrewController(CrewRepository crewRepository) {
+        this.crewRepository = crewRepository;
     }
 
     @GetMapping("/new")

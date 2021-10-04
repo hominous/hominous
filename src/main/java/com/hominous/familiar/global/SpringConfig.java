@@ -1,4 +1,4 @@
-package com.hominous.familiar.crew;
+package com.hominous.familiar.global;
 
 
 import com.hominous.familiar.crew.repository.CrewRepository;
@@ -18,7 +18,6 @@ public class SpringConfig {
         this.em = em;
     }
 
-    @Bean
     public CrewRepository crewRepository() {
         return new JpaCrewRepository(em);
     }
