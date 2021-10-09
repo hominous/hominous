@@ -5,6 +5,7 @@ import com.hominous.familiar.crew.domain.Crew;
 import com.hominous.familiar.crew.repository.CrewRepository;
 import com.hominous.familiar.crew.repository.JpaCrewRepository;
 import com.hominous.familiar.crew.dto.CrewCreateDto;
+import com.hominous.familiar.crew.repository.SpringDataJpaCrewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,11 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/crew")
 public class CrewController {
 
-    private final CrewRepository crewRepository;
+    private final SpringDataJpaCrewRepository springDataJpaCrewRepository;
 
     @Autowired
-    public CrewController(CrewRepository crewRepository) {
-        this.crewRepository = crewRepository;
+    public CrewController(SpringDataJpaCrewRepository springDataJpaCrewRepository) {
+        this.springDataJpaCrewRepository = springDataJpaCrewRepository;
     }
 
     @GetMapping("/new")
@@ -32,7 +33,7 @@ public class CrewController {
     @PostMapping
     public String createCrew(@ModelAttribute("crew") CrewCreateDto crewCreateDto){
         Crew crew = new Crew(crewCreateDto);
-        crewRepository.save(crew);
+        springDataJpaCrewRepository.save(crew);
         return "crew/welcome";
     }
 }

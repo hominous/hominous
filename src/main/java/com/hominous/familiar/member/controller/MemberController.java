@@ -5,6 +5,7 @@ import com.hominous.familiar.member.dto.MemberCreateDto;
 import com.hominous.familiar.member.domain.Member;
 import com.hominous.familiar.member.repository.MemberRepository;
 import com.hominous.familiar.member.repository.MemoryMemberRepository;
+import com.hominous.familiar.member.repository.SpringDataJpaMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,11 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/members")
 public class MemberController {
-    private final MemberRepository memberRepository;
+    private final SpringDataJpaMemberRepository springDataJpaMemberRepository;
 
     @Autowired
-    public MemberController(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
+    public MemberController(SpringDataJpaMemberRepository springDataJpaMemberRepository) {
+        this.springDataJpaMemberRepository = springDataJpaMemberRepository;
     }
 
     @GetMapping("/new")
@@ -33,7 +34,7 @@ public class MemberController {
     @PostMapping
     public String createMember(@ModelAttribute("member") MemberCreateDto memberCreateDto) {
         Member member = new Member(memberCreateDto);
-        memberRepository.save(member);
+        springDataJpaMemberRepository.save(member);
         return "member/welcome";
     }
 }
