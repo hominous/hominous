@@ -2,19 +2,15 @@ package com.hominous.familiar.member.dto;
 
 
 import lombok.Getter;
-import lombok.Setter;
 
-@Getter @Setter
+@Getter
 public class MemberCreateDto {
-    private String userId;
-    private String password;
-    private String userName;
-    private int userYear;
-    private int userMonth;
-    private int userDate;
-
-    public MemberCreateDto() {
-    }
+    private final String userId;
+    private final String password;
+    private final String userName;
+    private final int userYear;
+    private final int userMonth;
+    private final int userDate;
 
     public MemberCreateDto(String userId, String password, String userName, int userYear, int userMonth, int userDate) {
         this.userId = userId;
