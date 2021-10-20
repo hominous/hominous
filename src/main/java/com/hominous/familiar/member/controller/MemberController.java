@@ -3,10 +3,6 @@ package com.hominous.familiar.member.controller;
 
 import com.hominous.familiar.member.domain.LoginDto;
 import com.hominous.familiar.member.dto.MemberCreateDto;
-import com.hominous.familiar.member.domain.Member;
-import com.hominous.familiar.member.repository.MemberRepository;
-import com.hominous.familiar.member.repository.MemoryMemberRepository;
-import com.hominous.familiar.member.repository.SpringDataJpaMemberRepository;
 import com.hominous.familiar.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,9 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpSession;
-import java.net.URISyntaxException;
 
 @Transactional
 @Controller
@@ -38,10 +31,16 @@ public class MemberController {
     @GetMapping("/login")
     public String login() {return "member/login-form";}
 
+    @GetMapping("/welcome")
+    public String welcome() {return "member/welcome";}
+
     @PostMapping
     public String createMember(@ModelAttribute("member") MemberCreateDto memberCreateDto) {
-        memberService.MemberCreate(memberCreateDto);
-        return "member/welcome";
+        if(memberCreateDto.getPassword().equals(memberCreateDto.getPasswordCheck())) {
+            memberService.MemberCreate(memberCreateDto);
+            return "member/welcome";
+        }
+        return "member/welcomeErr";
     }
 
 //    @PostMapping("/try")

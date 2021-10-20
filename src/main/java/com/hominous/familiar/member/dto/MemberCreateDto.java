@@ -7,14 +7,16 @@ import lombok.Getter;
 public class MemberCreateDto {
     private final String userId;
     private final String password;
+    private final String passwordCheck;
     private final String userName;
     private final int userYear;
     private final int userMonth;
     private final int userDate;
 
-    public MemberCreateDto(String userId, String password, String userName, int userYear, int userMonth, int userDate) {
+    public MemberCreateDto(String userId, String password, String passwordCheck, String userName, int userYear, int userMonth, int userDate) {
         this.userId = userId;
         this.password = password;
+        this.passwordCheck = passwordCheck;
         this.userName = userName;
         this.userYear = userYear;
         this.userMonth = userMonth;
