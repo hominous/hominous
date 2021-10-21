@@ -7,6 +7,8 @@ import com.hominous.familiar.member.repository.SpringDataJpaMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class MemberService {
     private final SpringDataJpaMemberRepository springDataJpaMemberRepository;
@@ -17,8 +19,14 @@ public class MemberService {
         this.springDataJpaMemberRepository = springDataJpaMemberRepository;
     }
 
-    public void MemberCreate(MemberCreateDto memberCreateDto){
+    public Member memberCreate(MemberCreateDto memberCreateDto){
         Member member = new Member(memberCreateDto);
         springDataJpaMemberRepository.save(member);
+        return member;
+    }
+
+    public Member findMemberById(Long id){
+        Optional<Member> member = springDataJpaMemberRepository.findById(id);
+        return member.get();
     }
 }
