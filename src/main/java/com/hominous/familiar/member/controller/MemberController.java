@@ -32,19 +32,25 @@ public class MemberController {
 
     @GetMapping("/{id}")
     public String memberForm(@PathVariable Long id, Model model) {
-        Member memberById = memberService.findMemberById(id);  // 변수명을 member로 해도 될것 같습니다.
-        //@ModelAttribute 로 시도했으나 addAttribute가 정상적으로 되지 않음...
-        model.addAttribute("member",memberById);
+        Member member = memberService.findMemberById(id);
+        model.addAttribute("member",member);
         return "member/welcome";
     }
 
     @PostMapping
     public String createMember(MemberCreateDto memberCreateDto) {
-        if(memberCreateDto.getPassword().equals(memberCreateDto.getPasswordCheck())) {  // 가독성이 떨어지는것 같아 메서드로 만들면 좋을 것 같습니다. ex) if(memberCreateDto.checkPassword()) 
+        if(passCheck(memberCreateDto)) {
             Member member = memberService.memberCreate(memberCreateDto);
             return "redirect:/members/"+member.getId();
         }
         return "member/welcomeErr";
+    }
+
+    public boolean passCheck(MemberCreateDto memberCreateDto){
+        if(memberCreateDto.getPassword().equals(memberCreateDto.getPasswordCheck())) {
+            return true;
+        }
+        return false;
     }
 
 //    @PostMapping("/try")
