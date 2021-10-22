@@ -32,7 +32,7 @@ public class MemberController {
 
     @GetMapping("/{id}")
     public String memberForm(@PathVariable Long id, Model model) {
-        Member member = memberService.findMemberById(id);
+        Member member = memberService.findMemberById(id);//이름 수정
         model.addAttribute("member",member);
         return "member/welcome";
     }
@@ -46,7 +46,7 @@ public class MemberController {
         return "member/welcomeErr";
     }
 
-    public boolean passCheck(MemberCreateDto memberCreateDto){
+    public boolean passCheck(MemberCreateDto memberCreateDto){ //수정됨
         if(memberCreateDto.getPassword().equals(memberCreateDto.getPasswordCheck())) {
             return true;
         }
