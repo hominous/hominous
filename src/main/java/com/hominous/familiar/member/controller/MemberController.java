@@ -11,6 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+import java.net.URISyntaxException;
+
 @Transactional
 @Controller
 @RequestMapping("/members")
@@ -32,7 +35,7 @@ public class MemberController {
 
     @GetMapping("/{id}")
     public String memberForm(@PathVariable Long id, Model model) {
-        Member member = memberService.findMemberById(id);//이름 수정
+        Member member = memberService.findMemberById(id);
         model.addAttribute("member",member);
         return "member/welcome";
     }
@@ -46,16 +49,20 @@ public class MemberController {
         return "member/welcomeErr";
     }
 
-    public boolean passCheck(MemberCreateDto memberCreateDto){ //수정됨
+    public boolean passCheck(MemberCreateDto memberCreateDto){
         if(memberCreateDto.getPassword().equals(memberCreateDto.getPasswordCheck())) {
             return true;
         }
         return false;
     }
 
-//    @PostMapping("/try")
-//    public String loginTry(@ModelAttribute LoginDto loginDto, HttpSession httpSession) throws URISyntaxException {
-//        return loginDto;
-//    }
+    @PostMapping("/try")
+    public String loginTry(@ModelAttribute LoginDto loginDto, HttpSession httpSession) throws URISyntaxException {
+        boolean successLogin = memberService.isSuccessLogin(loginDto);
+        if(successLogin){
+            return "redirect:/";
+        }
+        return "member/welcomeErr";
+    }
 
 }
