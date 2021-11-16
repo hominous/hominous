@@ -5,6 +5,7 @@ import com.hominous.familiar.member.domain.LoginDto;
 import com.hominous.familiar.member.domain.Member;
 import com.hominous.familiar.member.dto.MemberCreateDto;
 import com.hominous.familiar.member.service.MemberService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,14 +17,11 @@ import java.net.URISyntaxException;
 
 @Transactional
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/members")
 public class MemberController {
+    
     private final MemberService memberService;
-
-    @Autowired
-    public MemberController(MemberService memberService) {
-        this.memberService = memberService;
-    }
 
     @GetMapping("/new")
     public String joinForm() {
