@@ -1,6 +1,7 @@
 package com.hominous.familiar.member.service;
 
 
+import com.hominous.familiar.member.domain.LoginDto;
 import com.hominous.familiar.member.domain.Member;
 import com.hominous.familiar.member.dto.MemberCreateDto;
 import com.hominous.familiar.member.repository.SpringDataJpaMemberRepository;
@@ -28,5 +29,17 @@ public class MemberService {
     public Member findMemberById(Long id){
         Optional<Member> member = springDataJpaMemberRepository.findById(id);
         return member.get();
+    }
+
+    public boolean isSuccessLogin(LoginDto loginDto){
+        Member member = springDataJpaMemberRepository.findByUserId(loginDto.getUserId());
+        if (member == null){
+            return false;
+        }
+        else if (member.getPassword() != loginDto.getPassword()) {
+            return false;
+        }
+        // true가 정상적으로 안 됨
+        else return true;
     }
 }
