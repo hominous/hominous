@@ -32,8 +32,9 @@ public class MemberService {
     }
 
     public boolean isSuccessLogin(LoginDto loginDto){
-        Member member = springDataJpaMemberRepository.findByUserId(loginDto.getUserId());
-        if (member == null){
+        Optional<Member> optionalMember = springDataJpaMemberRepository.findByUserId(loginDto.getUserId());
+        Member member = optionalMember.get();
+        if (optionalMember.isEmpty()){
             return false;
         }
         else if (member.getPassword() != loginDto.getPassword()) {
