@@ -2,9 +2,7 @@ package com.hominous.familiar.crew.controller;
 
 
 import com.hominous.familiar.crew.domain.Crew;
-import com.hominous.familiar.crew.repository.CrewRepository;
-import com.hominous.familiar.crew.repository.JpaCrewRepository;
-import com.hominous.familiar.crew.dto.CrewCreateDto;
+import com.hominous.familiar.domains.crew.application.dto.CrewCreateRequest;
 import com.hominous.familiar.crew.repository.SpringDataJpaCrewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +29,7 @@ public class CrewController {
     public String createForm() {return "crew/create-form";}
 
     @PostMapping
-    public String createCrew(@ModelAttribute("crew") CrewCreateDto crewCreateDto){
+    public String createCrew(@ModelAttribute("crew") CrewCreateRequest crewCreateDto){
         Crew crew = new Crew(crewCreateDto);
         springDataJpaCrewRepository.save(crew);
         return "crew/welcome";
