@@ -1,14 +1,14 @@
-package com.hominous.familiar.crew.dto;
+package com.hominous.familiar.domains.crew.application.dto;
 
 
 import lombok.Getter;
 
 @Getter
-public class CrewCreateDto {
+public class CrewCreateRequest {
     private final String name;
     private final String createdBy;
 
-    public CrewCreateDto(String name, String createdBy) {
+    public CrewCreateRequest(String name, String createdBy) {
         this.name = name;
         this.createdBy = createdBy;
     }

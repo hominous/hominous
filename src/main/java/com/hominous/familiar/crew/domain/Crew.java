@@ -1,7 +1,7 @@
 package com.hominous.familiar.crew.domain;
 
 
-import com.hominous.familiar.crew.dto.CrewCreateDto;
+import com.hominous.familiar.domains.crew.application.dto.CrewCreateRequest;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,7 +24,7 @@ public class Crew {
 
     public Crew(){}
 
-    public Crew(CrewCreateDto crewCreateDto) {
+    public Crew(CrewCreateRequest crewCreateDto) {
         this.name = crewCreateDto.getName();
         this.createdBy = crewCreateDto.getCreatedBy();
     }
