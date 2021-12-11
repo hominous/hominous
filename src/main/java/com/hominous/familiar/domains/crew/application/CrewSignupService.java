@@ -1,7 +1,7 @@
 package com.hominous.familiar.domains.crew.application;
 
 
-import com.hominous.familiar.domains.crew.application.dto.CrewCreateRequest;
+import com.hominous.familiar.domains.crew.application.dto.CrewSignupRequest;
 import com.hominous.familiar.domains.crew.domain.CrewEntity;
 import com.hominous.familiar.domains.crew.domain.CrewRepository;
 import lombok.RequiredArgsConstructor;
@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CrewCreateService {
+public class CrewSignupService {
 
     private final CrewRepository crewRepository;
 
-    public void createCrew(CrewCreateRequest crewCreateRequest){
+    public void createCrew(CrewSignupRequest crewSignupRequest){
         CrewEntity crewEntity = CrewEntity.builder()
-                .name(crewCreateRequest.getName())
-                .createdBy(crewCreateRequest.getCreatedBy())
+                .name(crewSignupRequest.getName())
+                .createdBy(crewSignupRequest.getCreatedBy())
                 .build();
         crewRepository.save(crewEntity);
     }
