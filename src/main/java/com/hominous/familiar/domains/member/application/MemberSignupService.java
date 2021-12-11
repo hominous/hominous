@@ -14,28 +14,28 @@ import java.security.InvalidParameterException;
 @Service
 @RequiredArgsConstructor
 public class MemberSignupService {
-  private final MemberRepository memberRepository;
-  private final PasswordEncoder passwordEncoder;
+    private final MemberRepository memberRepository;
+    private final PasswordEncoder passwordEncoder;
 
 
-  @Transactional
-  public void saveMember(MemberSignupRequest memberSignupRequest) {
+    @Transactional
+    public void createMember(MemberSignupRequest memberSignupRequest) {
 
-    String password = memberSignupRequest.getPassword();
-    String passwordCheck = memberSignupRequest.getPasswordCheck();
+        String password = memberSignupRequest.getPassword();
+        String passwordCheck = memberSignupRequest.getPasswordCheck();
 
-    if(!password.equals(passwordCheck)){
-      throw new InvalidParameterException("password and passwordCheck inconsistency");
+        if (!password.equals(passwordCheck)) {
+            throw new InvalidParameterException("password and passwordCheck inconsistency");
+        }
+
+        MemberEntity memberEntity = MemberEntity.builder()
+                .userId(memberSignupRequest.getUserId())
+                .password(passwordEncoder.encode(password))
+                .userName(memberSignupRequest.getUserName())
+                .userYear(memberSignupRequest.getUserYear())
+                .userMonth(memberSignupRequest.getUserMonth())
+                .userDate(memberSignupRequest.getUserDate())
+                .build();
+        memberRepository.save(memberEntity);
     }
-
-    MemberEntity memberEntity = MemberEntity.builder()
-        .userId(memberSignupRequest.getUserId())
-        .password(passwordEncoder.encode(password))
-        .userName(memberSignupRequest.getUserName())
-        .userYear(memberSignupRequest.getUserYear())
-        .userMonth(memberSignupRequest.getUserMonth())
-        .userDate(memberSignupRequest.getUserDate())
-        .build();
-    memberRepository.save(memberEntity);
-  }
 }
