@@ -1,7 +1,7 @@
 package com.hominous.familiar.domains.member.application;
 
 
-import com.hominous.familiar.domains.member.application.dto.MemberSignupRequest;
+import com.hominous.familiar.domains.member.application.dto.MemberSignupDto;
 import com.hominous.familiar.domains.member.domain.MemberEntity;
 import com.hominous.familiar.domains.member.domain.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,23 +19,22 @@ public class MemberSignupService {
 
 
   @Transactional
-  public void saveMember(MemberSignupRequest memberSignupRequest) {
+  public MemberEntity save(MemberSignupDto memberSignupDto) {
 
-    String password = memberSignupRequest.getPassword();
-    String passwordCheck = memberSignupRequest.getPasswordCheck();
+    String password = memberSignupDto.getPassword();
+    String passwordCheck = memberSignupDto.getPasswordCheck();
 
-    if(!password.equals(passwordCheck)){
+
+    if (!password.equals(passwordCheck)) {
       throw new InvalidParameterException("password and passwordCheck inconsistency");
     }
 
     MemberEntity memberEntity = MemberEntity.builder()
-        .userId(memberSignupRequest.getUserId())
-        .password(passwordEncoder.encode(password))
-        .userName(memberSignupRequest.getUserName())
-        .userYear(memberSignupRequest.getUserYear())
-        .userMonth(memberSignupRequest.getUserMonth())
-        .userDate(memberSignupRequest.getUserDate())
+        .memberId(memberSignupDto.getMemberId())
+        .password(passwordEncoder.encode(memberSignupDto.getPassword()))
+        .name(memberSignupDto.getName())
+        .birthdate(memberSignupDto.getBirthdate())
         .build();
-    memberRepository.save(memberEntity);
+    return memberRepository.save(memberEntity);
   }
 }

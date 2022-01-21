@@ -21,25 +21,21 @@ public class MemberEntity {
   private Long id;
 
   @NotNull
-  private String userId;
+  private String memberId;
   @NotNull
   private String password;
   @NotNull
-  private String userName;
+  private String name;
+
   @NotNull
-  private int userYear;
-  @NotNull
-  private int userMonth;
-  @NotNull
-  private int userDate;
+  private String birthdate;
+
 
   @Builder
-  public MemberEntity(String userId, String password, String userName, int userYear, int userMonth, int userDate) {
-    this.userId = userId;
+  public MemberEntity(String memberId, String password, String name, String birthdate) {
+    this.memberId = memberId;
     this.password = password;
-    this.userName = userName;
-    this.userYear = userYear;
-    this.userMonth = userMonth;
-    this.userDate = userDate;
+    this.name = name;
+    this.birthdate = birthdate;
   }
 }
