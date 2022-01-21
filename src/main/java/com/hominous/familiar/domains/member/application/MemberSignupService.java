@@ -13,6 +13,7 @@ import java.security.InvalidParameterException;
 
 @Service
 @RequiredArgsConstructor
+
 public class MemberSignupService {
   private final MemberRepository memberRepository;
   private final PasswordEncoder passwordEncoder;
