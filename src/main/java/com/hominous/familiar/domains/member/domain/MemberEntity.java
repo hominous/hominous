@@ -7,15 +7,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Getter
-@Entity
+@Table(name = "member")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
 public class MemberEntity {
 
   @Id
@@ -41,3 +39,5 @@ public class MemberEntity {
     this.birthdate = birthdate;
   }
 }
+
+
