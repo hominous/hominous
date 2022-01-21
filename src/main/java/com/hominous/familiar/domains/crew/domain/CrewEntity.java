@@ -1,7 +1,7 @@
 package com.hominous.familiar.domains.crew.domain;
 
 
-import com.hominous.familiar.domains.member.domain.MemberEntity;
+import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,17 +9,21 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
+
+
 @Getter
+@Table(name = "crew")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
 public class CrewEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    @NotNull
     private String name;
+
     private String createdBy;
 
     @Builder

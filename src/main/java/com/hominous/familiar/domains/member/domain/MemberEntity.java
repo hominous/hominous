@@ -1,17 +1,19 @@
 package com.hominous.familiar.domains.member.domain;
 
 
-import com.hominous.familiar.domains.crew.domain.CrewEntity;
 import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 
-@Entity
+@Getter
+@Table(name = "member")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
 public class MemberEntity {
 
   @Id
@@ -19,30 +21,23 @@ public class MemberEntity {
   private Long id;
 
   @NotNull
-  private String userId;
+  private String memberId;
   @NotNull
   private String password;
   @NotNull
-  private String userName;
-  @NotNull
-  private int userYear;
-  @NotNull
-  private int userMonth;
-  @NotNull
-  private int userDate;
+  private String name;
 
-  //연관관계의 주인은 크루? 멤버?
-  @ManyToOne
-  @JoinColumn(name="crew_id")
-  private CrewEntity crewEntity;
+  @NotNull
+  private String birthdate;
+
 
   @Builder
-  public MemberEntity(String userId, String password, String userName, int userYear, int userMonth, int userDate) {
-    this.userId = userId;
+  public MemberEntity(String memberId, String password, String name, String birthdate) {
+    this.memberId = memberId;
     this.password = password;
-    this.userName = userName;
-    this.userYear = userYear;
-    this.userMonth = userMonth;
-    this.userDate = userDate;
+    this.name = name;
+    this.birthdate = birthdate;
   }
 }
+
+
