@@ -1,6 +1,8 @@
 package com.hominous.familiar.domains.member.domain;
 
 
+import com.hominous.familiar.domains.BaseTimeEntity;
+import com.hominous.familiar.domains.crew.domain.CrewEntity;
 import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -14,7 +16,7 @@ import javax.persistence.*;
 @Table(name = "member")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class MemberEntity {
+public class MemberEntity extends BaseTimeEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +28,12 @@ public class MemberEntity {
   private String password;
   @NotNull
   private String name;
-
   @NotNull
   private String birthdate;
 
+  @ManyToOne
+  @JoinColumn(name = "crew_id", nullable = true)
+  private CrewEntity crewEntity;
 
   @Builder
   public MemberEntity(String memberId, String password, String name, String birthdate) {

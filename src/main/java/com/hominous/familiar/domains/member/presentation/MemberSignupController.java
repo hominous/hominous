@@ -17,7 +17,9 @@ public class MemberSignupController {
   private final MemberSignupService memberSignupService;
 
   @PostMapping("/member")
-  public ResponseEntity<MemberEntity> createMember(@RequestBody MemberSignupDto memberSignupDto) {
+  public ResponseEntity<MemberEntity> createMember(
+     @RequestBody MemberSignupDto memberSignupDto
+  ) {
     MemberEntity result = memberSignupService.save(memberSignupDto);
     return ResponseEntity.ok(result);
   }

@@ -20,7 +20,7 @@ public class MemberCreateCrewService {
     String name = memberCreateCrewRequest.getName();
     CrewEntity crewEntity = CrewEntity
         .builder()
-        .name(name)
+        .name(memberCreateCrewRequest.getName())
         .createdBy(memberEntity.getName())
         .build();
     return crewRepository.save(crewEntity);
