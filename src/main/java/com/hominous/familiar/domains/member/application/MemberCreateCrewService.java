@@ -17,7 +17,6 @@ public class MemberCreateCrewService {
 
   public CrewEntity makeCrew(Long memberIndex, MemberCreateCrewRequest memberCreateCrewRequest) {
     MemberEntity memberEntity = memberFindService.findById(memberIndex);
-    String name = memberCreateCrewRequest.getName();
     CrewEntity crewEntity = CrewEntity
         .builder()
         .name(memberCreateCrewRequest.getName())
