@@ -2,7 +2,7 @@ package com.hominous.familiar.domains.member.presentation;
 
 
 import com.hominous.familiar.domains.member.application.MemberSignupService;
-import com.hominous.familiar.domains.member.application.dto.MemberSignupDto;
+import com.hominous.familiar.domains.member.application.dto.MemberSignUpDto;
 import com.hominous.familiar.domains.member.domain.MemberEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ public class MemberSignupController {
 
   @PostMapping("/member")
   public ResponseEntity<MemberEntity> createMember(
-     @RequestBody MemberSignupDto memberSignupDto
+     @RequestBody MemberSignUpDto memberSignupDto
   ) {
     MemberEntity result = memberSignupService.save(memberSignupDto);
     return ResponseEntity.ok(result);
