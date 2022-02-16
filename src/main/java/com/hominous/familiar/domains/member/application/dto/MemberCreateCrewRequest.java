@@ -4,5 +4,5 @@ import lombok.Getter;
 
 @Getter
 public class MemberCreateCrewRequest {
-  String name;
+  private String name;
 }
