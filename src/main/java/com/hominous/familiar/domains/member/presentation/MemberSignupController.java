@@ -7,6 +7,7 @@ import com.hominous.familiar.domains.member.domain.MemberEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,7 +17,9 @@ public class MemberSignupController {
   private final MemberSignupService memberSignupService;
 
   @PostMapping("/member")
-  public ResponseEntity<MemberEntity> createMember(MemberSignupDto memberSignupDto) {
+  public ResponseEntity<MemberEntity> createMember(
+     @RequestBody MemberSignupDto memberSignupDto
+  ) {
     MemberEntity result = memberSignupService.save(memberSignupDto);
     return ResponseEntity.ok(result);
   }
