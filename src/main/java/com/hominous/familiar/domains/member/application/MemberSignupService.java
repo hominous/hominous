@@ -1,7 +1,7 @@
 package com.hominous.familiar.domains.member.application;
 
 
-import com.hominous.familiar.domains.member.application.dto.MemberSignupDto;
+import com.hominous.familiar.domains.member.application.dto.MemberSignUpDto;
 import com.hominous.familiar.domains.member.domain.MemberEntity;
 import com.hominous.familiar.domains.member.domain.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ public class MemberSignupService {
 
 
   @Transactional
-  public MemberEntity save(MemberSignupDto memberSignupDto) {
+  public MemberEntity save(MemberSignUpDto memberSignupDto) {
 
     String password = memberSignupDto.getPassword();
     String passwordCheck = memberSignupDto.getPasswordCheck();
