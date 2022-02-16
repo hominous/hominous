@@ -3,6 +3,7 @@ package com.hominous.familiar.domains.member.presentation;
 
 import com.hominous.familiar.domains.crew.domain.CrewEntity;
 import com.hominous.familiar.domains.member.application.MemberCreateCrewService;
+import com.hominous.familiar.domains.member.application.dto.MemberCreateCrewRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,8 +20,8 @@ public class MemberCreateCrewController {
   @PostMapping("/member/{memberIndex}/crew")
   public ResponseEntity<CrewEntity> makeCrew(
       @PathVariable Long memberIndex,
-      @RequestBody String name){
-    CrewEntity crewEntity = memberCreateCrewService.makeCrew(memberIndex, name);
+      @RequestBody MemberCreateCrewRequest memberCreateCrewRequest){
+    CrewEntity crewEntity = memberCreateCrewService.makeCrew(memberIndex, memberCreateCrewRequest);
     return ResponseEntity.ok(crewEntity);
   }
 }
