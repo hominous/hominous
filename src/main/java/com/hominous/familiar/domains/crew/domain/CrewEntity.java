@@ -1,6 +1,7 @@
 package com.hominous.familiar.domains.crew.domain;
 
 
+import com.hominous.familiar.domains.BaseTimeEntity;
 import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -15,7 +16,7 @@ import javax.persistence.*;
 @Table(name = "crew")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class CrewEntity {
+public class CrewEntity extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
