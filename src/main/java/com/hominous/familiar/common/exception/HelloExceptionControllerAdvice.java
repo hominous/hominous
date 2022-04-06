@@ -1,4 +1,4 @@
-package com.hominous.familiar.commons.exception;
+package com.hominous.familiar.common.exception;
 
 
 import org.springframework.web.bind.annotation.ExceptionHandler;

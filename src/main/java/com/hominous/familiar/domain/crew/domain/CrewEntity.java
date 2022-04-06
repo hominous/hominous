@@ -1,7 +1,7 @@
-package com.hominous.familiar.domains.crew.domain;
+package com.hominous.familiar.domain.crew.domain;
 
 
-import com.hominous.familiar.domains.BaseTimeEntity;
+import com.hominous.familiar.domain.BaseTimeEntity;
 import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.Builder;

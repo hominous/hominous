@@ -1,4 +1,4 @@
-package com.hominous.familiar.domains.crew.domain;
+package com.hominous.familiar.domain.crew.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

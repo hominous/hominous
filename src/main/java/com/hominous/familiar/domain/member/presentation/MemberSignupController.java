@@ -1,9 +1,9 @@
-package com.hominous.familiar.domains.member.presentation;
+package com.hominous.familiar.domain.member.presentation;
 
 
-import com.hominous.familiar.domains.member.application.MemberSignupService;
-import com.hominous.familiar.domains.member.application.dto.MemberSignUpDto;
-import com.hominous.familiar.domains.member.domain.MemberEntity;
+import com.hominous.familiar.domain.member.application.MemberSignupService;
+import com.hominous.familiar.domain.member.application.dto.MemberSignUpDto;
+import com.hominous.familiar.domain.member.domain.MemberEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

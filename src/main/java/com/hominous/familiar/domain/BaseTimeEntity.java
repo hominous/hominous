@@ -1,4 +1,4 @@
-package com.hominous.familiar.domains;
+package com.hominous.familiar.domain;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

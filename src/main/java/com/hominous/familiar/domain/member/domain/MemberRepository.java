@@ -1,4 +1,4 @@
-package com.hominous.familiar.domains.member.domain;
+package com.hominous.familiar.domain.member.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

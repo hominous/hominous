@@ -1,4 +1,4 @@
-package com.hominous.familiar.commons.security;
+package com.hominous.familiar.common.security;
 
 
 import org.springframework.context.annotation.Bean;

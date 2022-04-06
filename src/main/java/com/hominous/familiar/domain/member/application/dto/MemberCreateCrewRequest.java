@@ -1,4 +1,4 @@
-package com.hominous.familiar.domains.member.application.dto;
+package com.hominous.familiar.domain.member.application.dto;
 
 import lombok.Getter;
 

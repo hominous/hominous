@@ -1,8 +1,8 @@
-package com.hominous.familiar.domains.member.application;
+package com.hominous.familiar.domain.member.application;
 
 
-import com.hominous.familiar.domains.member.domain.MemberEntity;
-import com.hominous.familiar.domains.member.domain.MemberRepository;
+import com.hominous.familiar.domain.member.domain.MemberEntity;
+import com.hominous.familiar.domain.member.domain.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
