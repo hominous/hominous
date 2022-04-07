@@ -2,8 +2,8 @@ package com.hominous.familiar.domain.member.controller;
 
 
 import com.hominous.familiar.domain.crew.domain.CrewEntity;
-import com.hominous.familiar.domain.member.service.MemberCreateCrewService;
 import com.hominous.familiar.domain.member.dto.MemberCreateCrewRequest;
+import com.hominous.familiar.domain.member.service.MemberCreateCrewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
