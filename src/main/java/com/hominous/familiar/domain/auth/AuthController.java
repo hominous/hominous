@@ -1,4 +1,4 @@
-package com.hominous.familiar.domain.member.presentation;
+package com.hominous.familiar.domain.auth;
 
 
 import com.hominous.familiar.domain.member.application.MemberSignupService;
@@ -12,15 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class MemberSignupController {
+public class AuthController {
 
   private final MemberSignupService memberSignupService;
 
-  @PostMapping("/member")
-  public ResponseEntity<MemberEntity> createMember(
+  @PostMapping("/auth/sign-up")
+  public ResponseEntity<MemberEntity> signUp(
      @RequestBody MemberSignUpDto memberSignupDto
   ) {
     MemberEntity result = memberSignupService.save(memberSignupDto);
     return ResponseEntity.ok(result);
+  }
+
+  @PostMapping("/auth/sign-in")
+  public void signIn() {
+
   }
 }
