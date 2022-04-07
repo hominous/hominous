@@ -1,8 +1,8 @@
-package com.hominous.familiar.domain.auth;
+package com.hominous.familiar.domain.auth.controller;
 
 
-import com.hominous.familiar.domain.member.application.MemberSignupService;
-import com.hominous.familiar.domain.member.application.dto.MemberSignUpDto;
+import com.hominous.familiar.domain.auth.service.AuthService;
+import com.hominous.familiar.domain.auth.dto.SignUpDto;
 import com.hominous.familiar.domain.member.domain.MemberEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthController {
 
-  private final MemberSignupService memberSignupService;
+  private final AuthService memberSignupService;
 
   @PostMapping("/auth/sign-up")
   public ResponseEntity<MemberEntity> signUp(
-     @RequestBody MemberSignUpDto memberSignupDto
+     @RequestBody SignUpDto memberSignupDto
   ) {
     MemberEntity result = memberSignupService.save(memberSignupDto);
     return ResponseEntity.ok(result);

@@ -1,7 +1,7 @@
-package com.hominous.familiar.domain.member.application;
+package com.hominous.familiar.domain.auth.service;
 
 
-import com.hominous.familiar.domain.member.application.dto.MemberSignUpDto;
+import com.hominous.familiar.domain.auth.dto.SignUpDto;
 import com.hominous.familiar.domain.member.domain.MemberEntity;
 import com.hominous.familiar.domain.member.domain.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,13 +14,13 @@ import java.security.InvalidParameterException;
 @Service
 @RequiredArgsConstructor
 
-public class MemberSignupService {
+public class AuthService {
   private final MemberRepository memberRepository;
   private final PasswordEncoder passwordEncoder;
 
 
   @Transactional
-  public MemberEntity save(MemberSignUpDto memberSignupDto) {
+  public MemberEntity save(SignUpDto memberSignupDto) {
 
     String password = memberSignupDto.getPassword();
     String passwordCheck = memberSignupDto.getPasswordCheck();
