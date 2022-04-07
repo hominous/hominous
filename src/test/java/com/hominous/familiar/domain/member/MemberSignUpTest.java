@@ -1,7 +1,7 @@
 package com.hominous.familiar.domain.member;
 
 
-import com.hominous.familiar.domain.member.presentation.MemberSignupController;
+import com.hominous.familiar.domain.auth.AuthController;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -10,7 +10,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(controllers = MemberSignupController.class)
+@WebMvcTest(controllers = AuthController.class)
 //@AutoConfigureMockMvc
 public class MemberSignUpTest {
 
@@ -24,11 +24,11 @@ public class MemberSignUpTest {
 //  @Test
 //  public void MemberSignUp_실패() throws Exception {
 //    String json = "{\n" +
-//        "    \"memberId\": \"nsg2318\",\n" +
-//        "    \"password\": \"sunbaPassword\",\n" +
+//        "    \"memberId\": \"test0101\",\n" +
+//        "    \"password\": \"test1234\",\n" +
 //        "    \"passwordCheck\": \"sunbaPasswordCheck\",\n" +
-//        "    \"name\": \"남선기\",\n" +
-//        "    \"birthdate\": \"19930914\"\n" +
+//        "    \"name\": \"홍길동\",\n" +
+//        "    \"birthdate\": \"19990909\"\n" +
 //        "}";
 //    ObjectMapper objectMapper = new ObjectMapper();
 //    MemberSignUpDto memberSignUpDto = objectMapper.readValue(json, MemberSignUpDto.class);
