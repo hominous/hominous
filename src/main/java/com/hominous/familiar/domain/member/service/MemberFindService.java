@@ -1,4 +1,4 @@
-package com.hominous.familiar.domain.member.application;
+package com.hominous.familiar.domain.member.service;
 
 
 import com.hominous.familiar.domain.member.domain.MemberEntity;
