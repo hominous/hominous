@@ -15,6 +15,10 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+/**
+ * SpringSecurity에 jwt적용하기 위한 클래스
+ * GnericFilterBean을 상속받아 doFilter 메소드를 구현함으로써 SpringSecurity의 필터로 동작할 수 있음
+ */
 public class JwtFilter extends GenericFilterBean {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtFilter.class);
@@ -26,7 +30,9 @@ public class JwtFilter extends GenericFilterBean {
         this.tokenProvider = tokenProvider;
     }
 
-    //토큰 정보 SecurityContext 저장
+    /**
+     * httpServletRequest 로부터 가져온 토큰정보로 SC의 인증객체에 set해주는 필터로직
+     */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
