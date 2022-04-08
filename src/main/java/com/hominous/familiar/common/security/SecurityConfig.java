@@ -19,7 +19,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * Spring Security 설정클래스
- *
  * @EnableGlobalMethodSecurity - @PreAuthorize 어노테이션을 메소드 단위로 추가하기위해서 적용
  */
 
