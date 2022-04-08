@@ -1,7 +1,7 @@
 package com.hominous.familiar.domain.member;
 
 
-import com.hominous.familiar.domain.auth.AuthController;
+import com.hominous.familiar.domain.auth.controller.AuthController;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

@@ -1,10 +1,10 @@
-package com.hominous.familiar.domain.member.application.dto;
+package com.hominous.familiar.domain.auth.dto;
 
 
 import lombok.Getter;
 
 @Getter
-public class MemberSignUpDto {
+public class SignUpDto {
   private String memberId;
   private String password;
   private String passwordCheck;

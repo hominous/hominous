@@ -1,9 +1,9 @@
-package com.hominous.familiar.domain.member.application;
+package com.hominous.familiar.domain.member.service;
 
 
 import com.hominous.familiar.domain.crew.domain.CrewEntity;
 import com.hominous.familiar.domain.crew.domain.CrewRepository;
-import com.hominous.familiar.domain.member.application.dto.MemberCreateCrewRequest;
+import com.hominous.familiar.domain.member.dto.MemberCreateCrewRequest;
 import com.hominous.familiar.domain.member.domain.MemberEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
