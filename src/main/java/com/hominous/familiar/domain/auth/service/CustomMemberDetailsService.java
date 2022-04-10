@@ -1,4 +1,4 @@
-package com.hominous.familiar.domain.member.service;
+package com.hominous.familiar.domain.auth.service;
 
 import com.hominous.familiar.domain.member.domain.MemberEntity;
 import com.hominous.familiar.domain.member.domain.MemberRepository;
@@ -15,6 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * 유저 정보를 가져오기위한 서비스 클래스
+ */
 @Component("userDetailsService")
 @RequiredArgsConstructor
 public class CustomMemberDetailsService implements UserDetailsService {
