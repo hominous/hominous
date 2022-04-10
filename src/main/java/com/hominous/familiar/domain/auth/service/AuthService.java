@@ -3,6 +3,8 @@ package com.hominous.familiar.domain.auth.service;
 
 import com.hominous.familiar.common.jwt.JwtFilter;
 import com.hominous.familiar.common.jwt.TokenProvider;
+import com.hominous.familiar.common.security.SecurityUtil;
+import com.hominous.familiar.domain.auth.domain.AuthorityEntity;
 import com.hominous.familiar.domain.auth.dto.SignInDto;
 import com.hominous.familiar.domain.auth.dto.SignUpDto;
 import com.hominous.familiar.domain.auth.dto.TokenResponse;
@@ -21,6 +23,8 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.security.InvalidParameterException;
+import java.util.Collections;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -33,21 +37,29 @@ public class AuthService {
 
 
     @Transactional
-    public MemberEntity save(SignUpDto memberSignupDto) {
+    public MemberEntity save(SignUpDto signUpDto) {
 
-        String password = memberSignupDto.getPassword();
-        String passwordCheck = memberSignupDto.getPasswordCheck();
+        if (memberRepository.findOneWithAuthorityEntitiesByMemberId(signUpDto.getMemberId()).orElse(null) != null) {
+            throw new RuntimeException("이미 가입된 유저입니다.");
+        }
 
+        AuthorityEntity authority = AuthorityEntity.builder()
+                .authorityName("ROLE_MEMBER")
+                .build();
+
+        String password = signUpDto.getPassword();
+        String passwordCheck = signUpDto.getPasswordCheck();
 
         if (!password.equals(passwordCheck)) {
             throw new InvalidParameterException("password and passwordCheck inconsistency");
         }
 
         MemberEntity memberEntity = MemberEntity.builder()
-                .memberId(memberSignupDto.getMemberId())
-                .password(passwordEncoder.encode(memberSignupDto.getPassword()))
-                .name(memberSignupDto.getName())
-                .birthdate(memberSignupDto.getBirthdate())
+                .memberId(signUpDto.getMemberId())
+                .password(passwordEncoder.encode(signUpDto.getPassword()))
+                .name(signUpDto.getName())
+                .birthdate(signUpDto.getBirthdate())
+                .authorityEntities(Collections.singleton(authority))
                 .build();
         return memberRepository.save(memberEntity);
     }
@@ -59,8 +71,16 @@ public class AuthService {
         String jwt = tokenProvider.createToken(authentication);
 
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add(JwtFilter.AUTHORIZATION_HEADER, "Bearer "+ jwt);
+        httpHeaders.add(JwtFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
 
-        return new ResponseEntity<>(new TokenResponse(jwt),httpHeaders, HttpStatus.OK);
+        return new ResponseEntity<>(new TokenResponse(jwt), httpHeaders, HttpStatus.OK);
+    }
+
+    public Optional<MemberEntity> getMemberWithAuthorities(String memberId) {
+        return memberRepository.findOneWithAuthorityEntitiesByMemberId(memberId);
+    }
+
+    public Optional<MemberEntity> getMyMemberWithAuthorities() {
+        return SecurityUtil.getCurrentMemberId().flatMap(memberRepository::findOneWithAuthorityEntitiesByMemberId);
     }
 }
