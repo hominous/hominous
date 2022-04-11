@@ -25,11 +25,15 @@ public class CrewEntity extends BaseTimeEntity {
     @NotNull
     private String name;
 
+    @NotNull
+    private CrewType crewType;
+
     private String createdBy;
 
     @Builder
-    public CrewEntity(String name, String createdBy) {
+    public CrewEntity(String name, String createdBy, CrewType crewType) {
         this.name = name;
         this.createdBy = createdBy;
+        this.crewType = crewType;
     }
 }
