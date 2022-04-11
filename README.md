@@ -9,7 +9,7 @@
   - Spring Security
   - Spring Data JPA
 
-- Library
+- Skills
   - jwt(인증)
   - lombok 
   - jasypt  --> 예정

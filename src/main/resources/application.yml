@@ -5,8 +5,17 @@ spring:
 
 jwt:
   header: Authorization
-  secret: c3VuYmEtcHJvamVjdC1ob21pbm91cy1pLWhvcGUtbm9vbmUtY2FuLXNlZS10aGlzLWJ1dC1pZi15b3UtcmVhZC10aGlzLWNvbnRhY3QtbWUtcGxlYXNlCg==
+  secret: ENC(GSsl3aVX7bHm9GqaaU51UlJLcQGpAWLTTWnOSm+Yed2jsnPXWuxGN5v9cU3hAB6avbrbRaVaQgbEqWps9LMFwazPtUrQoOkJJX/CWISzteC+19UFUPSJTDzaZ6MoZOx6h8c7j7lkBEI7IueScWoabB6UkRBWTkdQDCiq1KmFAi+J9rm1c4HlBQ==)
   token-validity-in-seconds: 86400
+
+jasypt:
+  encryptor:
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+    property:
+      prefix: ENC(
+      suffix: )
+    algorithm: PBEWithMD5AndDES
+
 ---
 #local
 spring:
@@ -59,4 +68,4 @@ server:
 #  refund:
 #    server:
 #server:
-#  port: 80
+#  port: 8080
