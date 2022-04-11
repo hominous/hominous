@@ -5,8 +5,17 @@ spring:
 
 jwt:
   header: Authorization
-  secret: c3VuYmEtcHJvamVjdC1ob21pbm91cy1pLWhvcGUtbm9vbmUtY2FuLXNlZS10aGlzLWJ1dC1pZi15b3UtcmVhZC10aGlzLWNvbnRhY3QtbWUtcGxlYXNlCg==
+  secret: ENC(GSsl3aVX7bHm9GqaaU51UlJLcQGpAWLTTWnOSm+Yed2jsnPXWuxGN5v9cU3hAB6avbrbRaVaQgbEqWps9LMFwazPtUrQoOkJJX/CWISzteC+19UFUPSJTDzaZ6MoZOx6h8c7j7lkBEI7IueScWoabB6UkRBWTkdQDCiq1KmFAi+J9rm1c4HlBQ==)
   token-validity-in-seconds: 86400
+
+jasypt:
+  encryptor:
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+    property:
+      prefix: ENC(
+      suffix: )
+    algorithm: PBEWithMD5AndDES
+
 ---
 #local
 spring:
@@ -38,25 +47,22 @@ server:
 ---
 
 #deploy
-#spring:
-#  config:
-#    activate:
-#      on-profile: deploy
-#  datasource:
-#    url:
-#    username:
-#    password:
-#    driver-class-name: org.mariadb.jdbc.Driver
-#  jpa:
-#    show-sql: true
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-#        format_sql: true
-#    hibernate:
-#      ddl-auto: none
-#custom:
-#  refund:
-#    server:
-#server:
-#  port: 80
+spring:
+  config:
+    activate:
+      on-profile: deploy
+  datasource:
+    url: ENC(fv654NvKMJWmw0Z+dP2i7FiA29klMGnF0dHU3GwEVpvehX/d1utQ8MrqPkueI3OIQaheWmHo7TBU5Z6Pmuqbz2ivSqn+RbVxQ4CdxTLwku7ETPJ7kx96925jaPeGo3uWM3BZL7auM/A=)
+    username: ENC(q7+wNRHKECdAVYm8y4pQAw==)
+    password: ENC(1ajpwxJMSTtGx8lmTos5AaFiJ6uvkW37)
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: none
+server:
+  port: 8080
