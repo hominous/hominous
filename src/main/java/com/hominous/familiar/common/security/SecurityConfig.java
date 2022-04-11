@@ -61,7 +61,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .frameOptions()
                 .sameOrigin()
 
-                //세션 사용하지 않으므로 (Why not NEVER)
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.NEVER)
