@@ -8,6 +8,7 @@ import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 
@@ -32,9 +33,12 @@ public class MemberEntity extends BaseTimeEntity {
     @NotNull
     private String birthdate;
 
-    @ManyToOne
-    @JoinColumn(name = "crew_id")
-    private CrewEntity crewEntity;
+    @ManyToMany
+    @JoinTable(
+        name = "member_crew",
+        joinColumns = {@JoinColumn(name = "member_id", referencedColumnName = "id")},
+        inverseJoinColumns = {@JoinColumn(name = "crew_id", referencedColumnName = "id")})
+    private List<CrewEntity> crewEntities;
 
     @ManyToMany
     @JoinTable(
