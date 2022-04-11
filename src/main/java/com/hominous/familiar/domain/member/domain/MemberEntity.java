@@ -47,6 +47,15 @@ public class MemberEntity extends BaseTimeEntity {
             inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
     private Set<AuthorityEntity> authorityEntities;
 
+
+    public void addAuthority(AuthorityEntity authority){
+        this.authorityEntities.add(authority);
+    }
+
+    public CrewEntity addCrew(CrewEntity crewEntity) {
+        this.crewEntities.add(crewEntity);
+        return crewEntity;
+    }
 }
 
 

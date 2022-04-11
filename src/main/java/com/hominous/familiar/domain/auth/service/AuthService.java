@@ -28,7 +28,6 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-
 public class AuthService {
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
