@@ -63,6 +63,6 @@ spring:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         format_sql: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
 server:
   port: 8080
